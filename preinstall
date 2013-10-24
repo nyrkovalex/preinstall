@@ -18,8 +18,8 @@ yum install git -y
 yum install nginx -y
 yum install mongo-10gen mongo-10gen-server -y
 
-# install java runtime (links downloads 1.7.0_40)
-curl -L http://javadl.sun.com/webapps/download/AutoDL?BundleId=80804 > jre.rpm
+# install java runtime (links downloads 1.7.0_45)
+curl -L http://javadl.sun.com/webapps/download/AutoDL?BundleId=81811 > jre.rpm
 rpm -Uvh jre.rpm
 
 # cleanup
