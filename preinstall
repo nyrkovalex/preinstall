@@ -32,3 +32,5 @@ rm -f jre.rpm
 
 # install specific tools
 npm install -g pm2
+# init.d pm2 script
+pm2 startup centos
