@@ -12,15 +12,23 @@ cp -rf etc/profile.d/* /etc/profile.d
 # reload profile
 . /etc/profile
 
+# install EPEL repository
+curl http://download-i2.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm > epel.rpm
+rpm -ivh epel.rpm
+rm -f epel.rpm
+
 # install prerequisite tools & servers
 yum install mc -y
 yum install git -y
 yum install nginx -y
+yum install npm -y
 yum install mongo-10gen mongo-10gen-server -y
+yum groupinstall "Development Tools" -y
 
 # install java runtime (links downloads 1.7.0_45)
 curl -L http://javadl.sun.com/webapps/download/AutoDL?BundleId=81811 > jre.rpm
 rpm -Uvh jre.rpm
-
-# cleanup
 rm -f jre.rpm
+
+# install specific tools
+npm install -g pm2
