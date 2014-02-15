@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# expects to have current dir set as parent dir
+git clone https://github.com/immutables/preinstall.git
+cd preinstall
 
 # additional repositories
 # everything else expected to be available in default repositories
@@ -8,6 +9,10 @@ cp -rf etc/yum.repos.d/* /etc/yum.repos.d
 
 # copy env variables or path setting
 cp -rf etc/profile.d/* /etc/profile.d
+
+# after this point we no longer need any files we transferred
+rm -rf ./preinstall
+cd ..
 
 # reload profile
 . /etc/profile
