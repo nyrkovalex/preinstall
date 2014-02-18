@@ -1,5 +1,9 @@
 #!/bin/bash
 
+yum install mc -y
+yum install git -y
+yum erase java*
+
 git clone https://github.com/immutables/preinstall.git
 cd preinstall
 
@@ -11,8 +15,8 @@ cp -rf etc/yum.repos.d/* /etc/yum.repos.d
 cp -rf etc/profile.d/* /etc/profile.d
 
 # after this point we no longer need any files we transferred
-rm -rf ./preinstall
 cd ..
+rm -rf ./preinstall
 
 # reload profile
 . /etc/profile
@@ -23,10 +27,8 @@ rpm -ivh epel.rpm
 rm -f epel.rpm
 
 # install prerequisite tools & servers
-yum install mc -y
-yum install git -y
-yum install nginx -y
-yum install npm -y
+yum install nginx -y --enablerepo nginx
+yum install npm -y --enablerepo epel
 yum install mongo-10gen mongo-10gen-server -y
 yum groupinstall "Development Tools" -y
 
@@ -34,6 +36,7 @@ yum groupinstall "Development Tools" -y
 curl -L http://javadl.sun.com/webapps/download/AutoDL?BundleId=81811 > jre.rpm
 rpm -Uvh jre.rpm
 rm -f jre.rpm
+ln -sf /usr/java/latest/bin/java /usr/bin/java
 
 # install specific tools
 npm install -g pm2
