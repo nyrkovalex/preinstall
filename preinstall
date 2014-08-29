@@ -4,7 +4,7 @@ yum install mc -y
 yum install git -y
 yum erase java*
 
-git clone https://github.com/immutables/preinstall.git
+git clone https://github.com/elucash/preinstall.git
 cd preinstall
 
 # additional repositories
