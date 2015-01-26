@@ -1,5 +1,11 @@
-Preinstall java, git, mongodb... etc on fresh CentOS
+Preinstall java, git, mongodb... etc on fresh system
 
+# CentOS
 ```sh
-curl -L https://raw.github.com/immutables/preinstall/master/preinstall | bash
+curl -L https://raw.githubusercontent.com/nyrkovalex/preinstall/master/preinstall | bash
+```
+
+# Debian
+```sh
+curl -L https://raw.githubusercontent.com/nyrkovalex/preinstall/master/preinstall-deb | bash
 ```
